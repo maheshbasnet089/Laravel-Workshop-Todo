@@ -3,12 +3,18 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('backend.pages.home');
 });
 
 Route::get("/about",function(){
-    return view("about");
+    return view("backend.pages.about");
 });
+
+Route::get("/contact",function(){
+    return view('backend.pages.contact');
+});
+
+Route::get("/category/create",[\App\Http\Controllers\CategoryController::class,'create']);
 
 Route::get("/product",[\App\Http\Controllers\ProductController::class,'index']);
 Route::get("/product/create",[\App\Http\Controllers\ProductController::class,'create']);
