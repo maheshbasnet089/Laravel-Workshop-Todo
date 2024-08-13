@@ -126,7 +126,7 @@
     <!-- Form Container -->
     <div class="form-container">
         <h1>Create New Product</h1>
-        <form action="#" method="POST" enctype="multipart/form-data">
+        <form action="/product/create" method="POST" enctype="multipart/form-data">
             <!-- Product Name -->
             <div class="form-group">
                 <label for="name">Product Name:</label>

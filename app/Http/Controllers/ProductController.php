@@ -29,10 +29,16 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = new Product();
+        $imageName = time().'.'.$request->image->extension();
+
+        $request->image->move(public_path('images'), $imageName);
         $product->name = $request->name; 
-        $price = $request->price; 
-        $description = $request->description; 
-        $image = $request->name; 
+        $product->price = $request->price; 
+        $product->description = $request->description; 
+        $product->image = 'images/'.$imageName;
+        $product->save();
+        return redirect('products')->with('success','product created successfully');
+
     }
 
     /**

@@ -12,7 +12,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Category</li>
+              <li class="breadcrumb-item active">Brand</li>
             </ol>
           </div>
         </div>
@@ -28,29 +28,30 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Add Product</h3>
+                <h3 class="card-title">Add Brand</h3>
               </div>
-
+              @if($errors->any())
+                @foreach($errors->all() as $error)
+                  <p style="color:red">{{$error}}</p>
+                @endforeach
+              @endif
+              @if(session()->has('message'))
+                  <p style="color: green">
+                    {{session()->get('messages')}}
+                  </p>
+              @endif
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="/category/create" method="post">
+              <form action="/brand/create" method="post">
                 <div class="card-body">
                     @csrf
                   <div class="form-group">
-                    <label for="exampleInputEmail1">name</label>
-                    <input type="text" class="form-control" name="name" id="exampleInputEmail1" placeholder="Name" required>
+                    <label for="exampleInputEmail1">Title</label>
+                    <input type="text" class="form-control" name="title" id="exampleInputEmail1" placeholder="Title" required>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">price</label>
-                    <input type="number" class="form-control" name='price' id="exampleInputPassword1" placeholder="Price" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">description</label>
-                    <input type="text" class="form-control" name="description" id="exampleInputEmail1" placeholder="Enter Description" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Image</label>
-                    <input type="file" class="form-control" name="image" id="exampleInputEmail1" placeholder="Name" required>
+                    <label for="exampleInputPassword1">Description</label>
+                    <input type="text" class="form-control" name='description' id="exampleInputPassword1" placeholder="Description" required>
                   </div>
     
                 </div>
