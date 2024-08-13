@@ -37,23 +37,22 @@
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                     <tr>
-                      <th>Rendering engine</th>
-                      <th>Browser</th>
-                      <th>Platform(s)</th>
-                      <th>Engine version</th>
-                      <th>CSS grade</th>
+                      <th>id</th>
+                      <th>title</th>
+                      <th>description</th>
+                      <th>created_at</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                      <td>Trident</td>
-                      <td>Internet
-                        Explorer 4.0
-                      </td>
-                      <td>Win 95+</td>
-                      <td> 4</td>
-                      <td>X</td>
-                    </tr>
+                        @foreach ($categories as $category)
+                        <tr>
+                            <td>{{$category->id}}</td>
+                            <td>{{$category->title}}
+                            </td>
+                            <td>{{$category->description}}</td>
+                            <td></td>
+                        </tr>
+                        @endforeach
                    
                    
                     </tbody>
