@@ -62,7 +62,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $category = Category::find($id); 
+        $category->title = $request->title; 
+        $category->description = $request->description; 
+        $category->save();
+        return redirect('category/create')->with('success','Edited successfully');
     }
 
     /**
