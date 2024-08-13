@@ -28,5 +28,6 @@ Route::get("/product/create",[\App\Http\Controllers\ProductController::class,'cr
 
 // Product Routes 
 Route::get("/product/create",[\App\Http\Controllers\ProductController::class,'create']);
+Route::post("/product/create",[\App\Http\Controllers\ProductController::class,'store']);
 
 

@@ -17,8 +17,16 @@
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item active">Category List</li>
+
               </ol>
             </div>
+            @if(session()->has('message'))
+            <div class="alert alert-success">
+              {{session()->get('message')}}
+
+            </div>
+        
+        @endif
           </div>
         </div><!-- /.container-fluid -->
       </section>
