@@ -14,6 +14,7 @@ Route::get("/contact",function(){
     return view('backend.pages.contact');
 });
 
+Route::get("/category",[\App\Http\Controllers\CategoryController::class,'index']);
 Route::get("/category/create",[\App\Http\Controllers\CategoryController::class,'create']);
 Route::post("/category/create",[\App\Http\Controllers\CategoryController::class,'store']);
 Route::get("/category/edit/{id}",[\App\Http\Controllers\CategoryController::class,'edit']);
