@@ -123,35 +123,35 @@
         </div>
     </nav>
 
-    <!-- Form Container -->
+ 
     <div class="form-container">
         <h1>Create New Product</h1>
         <form action="/product/create" method="POST" enctype="multipart/form-data">
-            <!-- Product Name -->
+            
             <div class="form-group">
                 <label for="name">Product Name:</label>
                 <input type="text" id="name" name="name" required>
             </div>
 
-            <!-- Product Price -->
+      
             <div class="form-group">
                 <label for="price">Price:</label>
                 <input type="number" id="price" name="price" step="0.01" required>
             </div>
 
-            <!-- Product Description -->
+           
             <div class="form-group">
                 <label for="description">Description:</label>
                 <textarea id="description" name="description" required></textarea>
             </div>
 
-            <!-- Product Image -->
+           
             <div class="form-group">
                 <label for="image">Product Image:</label>
                 <input type="file" id="image" name="image" accept="image/*" required>
             </div>
 
-            <!-- Submit Button -->
+           
             <div class="form-group">
                 <button type="submit">Create Product</button>
             </div>

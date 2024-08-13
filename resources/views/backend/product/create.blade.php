@@ -33,7 +33,7 @@
 
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="/category/create" method="post">
+              <form action="/product/create" method="post" enctype="multipart/form-data">
                 <div class="card-body">
                     @csrf
                   <div class="form-group">
@@ -45,8 +45,41 @@
                     <input type="number" class="form-control" name='price' id="exampleInputPassword1" placeholder="Price" required>
                   </div>
                   <div class="form-group">
+                    <label for="exampleInputPassword1">color</label>
+                    <input type="text" class="form-control" name='color' id="exampleInputPassword1" placeholder="color" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">stock</label>
+                    <input type="number" class="form-control" name='stock' id="exampleInputPassword1" placeholder="stock" required>
+                  </div>
+                  
+                  <div class="form-group">
                     <label for="exampleInputEmail1">description</label>
                     <input type="text" class="form-control" name="description" id="exampleInputEmail1" placeholder="Enter Description" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Size</label>
+                   <select name="size" id="">
+                    @foreach($sizes as $size)
+                    <option value={{$size}}>{{$size}}</option>
+                    @endforeach
+                   </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Categories</label>
+                   <select name="category_id" id="">
+                    @foreach($categories as $category)
+                    <option value={{$category->id}}>{{$category->title}}</option>
+                    @endforeach
+                   </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Brand</label>
+                   <select name="brand_id" id="">
+                    @foreach($brands as $brand)
+                    <option value={{$brand->id}}>{{$brand->title}}</option>
+                    @endforeach
+                   </select>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Image</label>
