@@ -11,6 +11,7 @@
           <div class="row mb-2">
             <div class="col-sm-6">
               <h1>Categories</h1>
+              <button>Add Category</button>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
@@ -41,16 +42,22 @@
                       <th>title</th>
                       <th>description</th>
                       <th>created_at</th>
+                      <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
                         @foreach ($categories as $category)
+
                         <tr>
                             <td>{{$category->id}}</td>
                             <td>{{$category->title}}
                             </td>
                             <td>{{$category->description}}</td>
-                            <td></td>
+                            <td>{{$category->created_at}}</td>
+                            <td>
+                                <button><a href="/category/edit/{{$category->id}}">Edit</a></button>
+                                <button><a href="/category/delete/{{$category->id}}">Delete</a></button>
+                            </td>
                         </tr>
                         @endforeach
                    
