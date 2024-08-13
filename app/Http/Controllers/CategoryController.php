@@ -34,7 +34,8 @@ class CategoryController extends Controller
         $category->title = $request->title; 
         $category->description = $request->description; 
         $category->save();
-        return redirect()->back()->with('message','Data saved');
+        // return redirect()->route('/category')->with('message','Data saved');
+        return redirect('category')->with('message','Data saved');
         
     }
 
@@ -54,7 +55,7 @@ class CategoryController extends Controller
         $category = Category::find($id);
         if (!$category) {
             // Handle the case where the category is not found
-            return redirect()->route('category.create')->with('error', 'Category not found.');
+            return redirect()->route('/category/create')->with('error', 'Category not found.');
         }
         return view('backend.category.edit', compact('category'));
     }
@@ -68,7 +69,7 @@ class CategoryController extends Controller
         $category->title = $request->title; 
         $category->description = $request->description; 
         $category->save();
-        return redirect('category/create')->with('success','Edited successfully');
+        return redirect('category')->with('success','Edited successfully');
     }
 
     /**
