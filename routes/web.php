@@ -15,6 +15,7 @@ Route::get("/contact",function(){
 });
 
 Route::get("/category",[\App\Http\Controllers\CategoryController::class,'index']);
+Route::get("/category/delete/{id}",[\App\Http\Controllers\CategoryController::class,'destroy']);
 Route::get("/category/create",[\App\Http\Controllers\CategoryController::class,'create']);
 Route::post("/category/create",[\App\Http\Controllers\CategoryController::class,'store']);
 Route::get("/category/edit/{id}",[\App\Http\Controllers\CategoryController::class,'edit']);

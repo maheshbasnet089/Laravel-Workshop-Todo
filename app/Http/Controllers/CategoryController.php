@@ -77,6 +77,13 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = Category::where('id',$id)->delete();
+    
+        if($data){
+            return redirect('/category')->with('success','Deleted successfully');
+        }else{
+            echo('Error Deleting Category');
+        }
+
     }
 }
