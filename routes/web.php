@@ -24,3 +24,9 @@ Route::put("/category/edit/{id}",[\App\Http\Controllers\CategoryController::clas
 Route::get("/product",[\App\Http\Controllers\ProductController::class,'index']);
 Route::get("/product/create",[\App\Http\Controllers\ProductController::class,'create']);
 
+
+
+// Product Routes 
+Route::get("/product/create",[\App\Http\Controllers\ProductController::class,'create']);
+
+

@@ -30,6 +30,11 @@
               <div class="card-header">
                 <h3 class="card-title">Add Category</h3>
               </div>
+              @if($errors->any())
+                @foreach($errors->all() as $error)
+                  <p style="color:red">{{$error}}</p>
+                @endforeach
+              @endif
               <!-- /.card-header -->
               <!-- form start -->
               <form action="/category/create" method="post">
@@ -37,11 +42,11 @@
                     @csrf
                   <div class="form-group">
                     <label for="exampleInputEmail1">Title</label>
-                    <input type="text" class="form-control" name="title" id="exampleInputEmail1" placeholder="Title">
+                    <input type="text" class="form-control" name="title" id="exampleInputEmail1" placeholder="Title" required>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Description</label>
-                    <input type="text" class="form-control" name='description' id="exampleInputPassword1" placeholder="Description">
+                    <input type="text" class="form-control" name='description' id="exampleInputPassword1" placeholder="Description" required>
                   </div>
     
                 </div>
