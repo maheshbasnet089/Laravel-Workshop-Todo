@@ -39,9 +39,11 @@
         @foreach($products as $product)
         <div class="article">
           <h2><span>{{$product->name}}</h2>
+          <h2><span>{{$product->brand->title}}</h2>
+
           <div class="clr"></div>
           <p>Posted on {{$product->created_at}} by Sara in Filed under templates, internet, with Comments 18</p>
-          <img src="{{asset('images/'.$product->image)}}" width="613" height="179" alt="" />
+          <img src="{{asset($product->image)}}" width="613" height="179" alt="" />
           <div class="clr"></div>
           <p>{{$product->description}}</p>
           <p><a href="/user/product/{{$product->id}}" >Read more </a></p>

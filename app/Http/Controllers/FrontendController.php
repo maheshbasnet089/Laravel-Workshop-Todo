@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,9 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        // $brands = Brand::with('products')->get();
+        $products = Product::with('brand')->get();
+    
         return view('frontend.index', compact('products'));
     }
 
