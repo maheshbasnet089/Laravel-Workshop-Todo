@@ -37,7 +37,8 @@ class FrontendController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $product = Product::find($id); 
+        return view('frontend.show', compact('product'));
     }
 
     /**

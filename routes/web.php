@@ -41,6 +41,7 @@ Route::put("/product/edit/{id}",[\App\Http\Controllers\ProductController::class,
 
 // Frontend Routes 
 Route::get("/",[\App\Http\Controllers\FrontendController::class,'index']);
+Route::get("/user/product/{id}",[\App\Http\Controllers\FrontendController::class,'show']);
 
 
 

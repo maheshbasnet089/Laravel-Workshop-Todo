@@ -63,7 +63,7 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        $product = Product::find($id)->join('categories','products.category_id','=','categories.id');
+        $product = Product::find($id);
     
 
         return view('backend.product.single',compact('product'));

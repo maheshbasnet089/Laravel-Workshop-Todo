@@ -38,13 +38,13 @@
       <div class="mainbar">
         @foreach($products as $product)
         <div class="article">
-          <h2><span>Template</span> License</h2>
+          <h2><span>{{$product->name}}</h2>
           <div class="clr"></div>
-          <p>Posted on 18. Sep, 2015 by Sara in Filed under templates, internet, with Comments 18</p>
-          <img src="images/img_1.jpg" width="613" height="179" alt="" />
+          <p>Posted on {{$product->created_at}} by Sara in Filed under templates, internet, with Comments 18</p>
+          <img src="{{asset('images/'.$product->image)}}" width="613" height="179" alt="" />
           <div class="clr"></div>
-          <p>This is a free CSS website template by RocketWebsiteTemplates.com. This work is distributed under the Creative Commons Attribution 3.0 License, which means that you are free to use it for any personal or commercial purpose provided you credit me in the form of a link back to RocketWebsiteTemplates.com.</p>
-          <p><a href="#">Read more </a></p>
+          <p>{{$product->description}}</p>
+          <p><a href="/user/product/{{$product->id}}" >Read more </a></p>
         </div>
         @endforeach
   
