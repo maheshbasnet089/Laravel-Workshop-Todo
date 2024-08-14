@@ -2,9 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('backend.pages.home');
-});
+
 
 Route::get("/about",function(){
     return view("backend.pages.about");
@@ -33,8 +31,17 @@ Route::put("/brand/edit/{id}",[\App\Http\Controllers\BrandController::class,'upd
 
 // Product Routes 
 Route::get("/product",[\App\Http\Controllers\ProductController::class,'index']);
+Route::get("/product/{id}",[\App\Http\Controllers\ProductController::class,'show'])->name('product.show');
 Route::get("/product/create",[\App\Http\Controllers\ProductController::class,'create']);
 Route::post("/product/create",[\App\Http\Controllers\ProductController::class,'store']);
+Route::get("/product/delete/{id}",[\App\Http\Controllers\ProductController::class,'destroy']);
+Route::get("/product/edit/{id}",[\App\Http\Controllers\ProductController::class,'edit']);
+Route::put("/product/edit/{id}",[\App\Http\Controllers\ProductController::class,'update']);
+
+
+// Frontend Routes 
+Route::get("/",[\App\Http\Controllers\FrontendController::class,'index']);
+
 
 
 

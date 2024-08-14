@@ -14,7 +14,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::all(); 
+        
+
+        return view('backend.product.list', compact('products'));
     }
 
     /**
@@ -60,7 +63,10 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $product = Product::find($id)->join('categories','products.category_id','=','categories.id');
+    
+
+        return view('backend.product.single',compact('product'));
     }
 
     /**
@@ -68,7 +74,15 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $product = Product::find($id); 
+        $categories = Category::all();
+        $brand = Brand::all();
+        $data['product'] = $product;
+        $data['categories'] = $categories; 
+        $data['brands'] = $brand;
+        $data['sizes'] = ['L','XL','M','S'];
+        return view('backend.product.edit',$data); 
+ 
     }
 
     /**
@@ -76,7 +90,34 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $product = Product::find($id); 
+        $p_image='images/'.$product->image;
+        dump($p_image);
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $imageName = time().'.'.$image->getClientOriginalExtension();
+            if (file_exists(public_path($name =  $p_image))) 
+            {
+                unlink(public_path($name));
+            };
+            $image->move(public_path('images'),$imageName);
+            $product->image = $imageName;
+        }
+        $product->name = $request->name; 
+        $product->description = $request->description; 
+        $product->price = $request->price; 
+        $product->stock = $request->stock; 
+        $product->color = $request->color;
+        $product->size = $request->size; 
+        $product->category_id = $request->category_id; 
+        $product->brand_id = $request->brand_id; 
+
+        $product->save();
+        // return redirect()->route('product',['id'=>$id])->with('success','Edit successfull');
+        // return redirect()->route('product',['id'=>$id]); 
+        // return redirect()->route('product.show',['id'=>$id]); 
+        return redirect('/');
+
     }
 
     /**
@@ -84,6 +125,12 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = Product::where('id',$id)->delete();
+        if(!$data){
+            echo('Error deleting product');
+        }else{
+            return redirect('product')->with('success','Delete successfully');
+        }
+
     }
 }
